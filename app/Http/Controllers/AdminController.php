@@ -104,4 +104,8 @@ class AdminController extends Controller
         $categories = Category::orderBy('id', 'DESC')->paginate(10);
         return view('admin.categories.index', compact('categories'));
     }
+
+    public function category_add(){
+        return view('admin.categories.category_add');
+    }
 }
