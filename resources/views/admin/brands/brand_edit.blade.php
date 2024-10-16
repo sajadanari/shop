@@ -59,7 +59,7 @@
     </div>
     <!-- new-category -->
     <div class="wg-box">
-        <form class="form-new-product form-style-1" action="{{ route('admin.brands.store') }}" method="POST"
+        <form class="form-new-product form-style-1" action="{{ route('admin.brands.update') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{ $brand->id }}" />
