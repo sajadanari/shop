@@ -48,6 +48,11 @@ class AdminController extends Controller
         return redirect()->route('admin.brands')->with('status', 'Brand has been added succesfully!');
     }
 
+    public function brand_edit($id){
+        $brand = Brand::find($id);
+        return view('admin.brands.brand_edit', compact('brand'));
+    }
+
     public function GenerateBrandsThumbnailsImage($image, $imageName){
         $destPath = public_path('uploads/brands');
         $img = Image::read($image->path());
