@@ -62,6 +62,7 @@
         <form class="form-new-product form-style-1" action="{{ route('admin.brands.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="id" value="{{ $brand->id }}" />
             <fieldset class="name">
                 <div class="body-title">Brand Name <span class="tf-color-1">*</span></div>
                 <input class="flex-grow" type="text" placeholder="Brand name" name="name"
