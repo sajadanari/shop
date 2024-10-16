@@ -68,12 +68,13 @@ class AdminController extends Controller
             if(File::exists(public_path('uploads/brands'). '/' . $brand->image)){
                 File::delete(public_path('uploads/brands'). '/' . $brand->image);
             }
+            $image = $request->file('image');
+            $file_extension = $image->extension();
+            $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+            $this->GenerateBrandsThumbnailsImage($image, $file_name);
+            $brand->image = $file_name;
         }
-        $image = $request->file('image');
-        $file_extension = $image->extension();
-        $file_name = Carbon::now()->timestamp . '.' . $file_extension;
-        $this->GenerateBrandsThumbnailsImage($image, $file_name);
-        $brand->image = $file_name;
+        
         $brand->save();
         return redirect()->route('admin.brands')->with('status', 'Brand has been updated succesfully!');
 
