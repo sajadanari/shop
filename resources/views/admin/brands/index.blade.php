@@ -4,6 +4,27 @@
 @endpush
 
 @push("admin-scripts")
+
+    <script>
+        $(function(){
+            $('delete').on('click', function(e){
+                e.preventDefault();
+                var form = $(this).closest('form');
+                swal({
+                    title: 'Are you sure?',
+                    text: 'You want to delete this record?',
+                    type: 'warning',
+                    buttons: ['No', 'Yes'],
+                    confirmButtonColor: '#dc3545'
+                }).then(function(){
+                    if(result){
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
+
 @endpush
 
 @section("admin-content")
