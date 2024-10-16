@@ -7,6 +7,7 @@ use App\Models\Brand;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Laravel\Facades\Image;
 
 class AdminController extends Controller
@@ -51,6 +52,31 @@ class AdminController extends Controller
     public function brand_edit($id){
         $brand = Brand::find($id);
         return view('admin.brands.brand_edit', compact('brand'));
+    }
+
+    public function brand_update(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:brands,slug',
+            'image' => 'mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        $brand = Brand::find($request->id);
+        $brand->name = $request->name;
+        $brand->slug = Str::slug($request->name);
+        if($request->hasFile('image')){
+            if(File::exists(public_path('uploads/brands'). '/' . $brand->image)){
+                File::delete(public_path('uploads/brands'). '/' . $brand->image);
+            }
+        }
+        $image = $request->file('image');
+        $file_extension = $image->extension();
+        $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+        $this->GenerateBrandsThumbnailsImage($image, $file_name);
+        $brand->image = $file_name;
+        $brand->save();
+        return redirect()->route('admin.brands')->with('status', 'Brand has been updated succesfully!');
+
     }
 
     public function GenerateBrandsThumbnailsImage($image, $imageName){
