@@ -65,7 +65,7 @@
             <fieldset class="name">
                 <div class="body-title">Brand Name <span class="tf-color-1">*</span></div>
                 <input class="flex-grow" type="text" placeholder="Brand name" name="name"
-                    tabindex="0" value="{{ old('name') }}" aria-required="true" required="">
+                    tabindex="0" value="{{ $brand->name }}" aria-required="true" required="">
             </fieldset>
             @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -75,7 +75,7 @@
             <fieldset class="name">
                 <div class="body-title">Brand Slug <span class="tf-color-1">*</span></div>
                 <input class="flex-grow" type="text" placeholder="Brand Slug" name="slug"
-                    tabindex="0" value="{{ old('slug') }}" aria-required="true" required="">
+                    tabindex="0" value="{{ $brand->slug }}" aria-required="true" required="">
             </fieldset>
             @error('slug')
                         <span class="invalid-feedback" role="alert">
