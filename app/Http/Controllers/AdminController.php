@@ -108,4 +108,33 @@ class AdminController extends Controller
     public function category_add(){
         return view('admin.categories.category_add');
     }
+
+    public function category_store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:categories,slug',
+            'image' => 'mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name);
+        $image = $request->file('image');
+        $file_extension = $image->extension();
+        $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+        $this->GenerateCategoriesThumbnailsImage($image, $file_name);
+        $category->image = $file_name;
+        $category->save();
+        return redirect()->route('admin.categories')->with('status', 'Category has been added succesfully!');
+    }
+
+    public function GenerateCategoriesThumbnailsImage($image, $imageName){
+        $destPath = public_path('uploads/categories');
+        $img = Image::read($image->path());
+        $img->cover(124, 124, "top");
+        $img->resize(124, 124, function($const){
+            $const->aspectRatio();
+        });
+        $img->save($destPath. '/'. $imageName);
+    }
 }
