@@ -7,7 +7,7 @@
 
     <script>
         $(function(){
-            $('delete').on('click', function(e){
+            $('.delete').on('click', function(e){
                 e.preventDefault();
                 var form = $(this).closest('form');
                 swal({
@@ -16,7 +16,7 @@
                     type: 'warning',
                     buttons: ['No', 'Yes'],
                     confirmButtonColor: '#dc3545'
-                }).then(function(){
+                }).then(function(result){
                     if(result){
                         form.submit();
                     }
@@ -98,7 +98,7 @@
                                         <i class="icon-edit-3"></i>
                                     </div>
                                 </a>
-                                <form action="{{ route('admin.brands.delete', ['id'] => $brand->id) }}" method="POST">
+                                <form action="{{ route('admin.brands.delete', ['id'=> $brand->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="item text-danger delete">
