@@ -53,7 +53,7 @@
                 <i class="icon-chevron-right"></i>
             </li>
             <li>
-                <div class="text-tiny">New Brand</div>
+                <div class="text-tiny">Edit Brand</div>
             </li>
         </ul>
     </div>
