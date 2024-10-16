@@ -57,7 +57,7 @@ class AdminController extends Controller
     public function brand_update(Request $request){
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:brands,slug',
+            'slug' => 'required|unique:brands,slug,'. $request->id,
             'image' => 'mimes:png,jpg,jpeg|max:2048'
         ]);
 
