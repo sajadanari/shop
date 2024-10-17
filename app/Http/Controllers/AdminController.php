@@ -137,4 +137,10 @@ class AdminController extends Controller
         });
         $img->save($destPath. '/'. $imageName);
     }
+
+    public function cetegory_edit($id){
+        $category = Category::find($id);
+        return view('admin.categories.category_edit', compact('category'));
+    }
+
 }
