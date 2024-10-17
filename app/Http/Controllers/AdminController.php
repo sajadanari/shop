@@ -143,4 +143,25 @@ class AdminController extends Controller
         return view('admin.categories.category_edit', compact('category'));
     }
 
+    public function category_update(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:categories,slug,'. $request->id,
+            'image' => 'mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        $category = Category::find($request->id);
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name);
+        if($request->hasFile('image')){
+            if(File::exists(public_path('uploads/categories'). '/' . $category->image)){
+                File::delete(public_path('uploads/categories'). '/' . $category->image);
+            }
+            $image = $request->file('image');
+            $file_extension = $image->extension();
+            $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+            $this->GenerateCategoriesThumbnailsImage($image, $file_name);
+            $category->image = $file_name;
+    }
+
 }
