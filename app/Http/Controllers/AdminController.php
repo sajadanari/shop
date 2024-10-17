@@ -162,6 +162,10 @@ class AdminController extends Controller
             $file_name = Carbon::now()->timestamp . '.' . $file_extension;
             $this->GenerateCategoriesThumbnailsImage($image, $file_name);
             $category->image = $file_name;
+        }
+
+        $category->save();
+        return redirect()->route('admin.categories')->with('status', 'Category has been updated succesfully!');
     }
 
 }
