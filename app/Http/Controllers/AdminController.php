@@ -185,4 +185,10 @@ class AdminController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
+    public function product_add(){
+        $categories = Category::select('id', 'name')->orderBy('name', 'DESC')->get();
+        $brands = Brand::select('id', 'name')->orderBy('name', 'DESC')->get();
+        return view('admin.products.add', compact('categories', 'brands'));
+    }
+
 }
