@@ -62,11 +62,9 @@
                 <div class="select">
                     <select class="" name="category_id">
                         <option>Choose category</option>
-                        <option value="1">Category1</option>
-                        <option value="2">Category2</option>
-                        <option value="3">Category3</option>
-                        <option value="4">Category4</option>
-
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
                 </div>
             </fieldset>
