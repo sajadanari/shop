@@ -66,7 +66,7 @@
     </ul>
 </div>
 <!-- form-add-product -->
-<form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="">
+<form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="{{ route('admin.product.update') }}">
     @csrf
     @method("PUT")
     <input type="hidden" name="id" value="{{ $product->id }}" >
