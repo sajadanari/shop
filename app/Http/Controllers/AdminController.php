@@ -272,4 +272,11 @@ class AdminController extends Controller
         $img->save($destPathThumbnail. '/'. $imageName);
     }
 
+    public function product_edit($id){
+        $product = Product::find($id);
+        $category = Category::select('id', 'name')->orderBy('name', 'DESC')->get();
+        $brand = Brand::select('id', 'name')->orderBy('name', 'DESC')->get();
+        return view('admin.products.edit', compact('product', 'category', 'brand'));
+    }
+
 }
