@@ -191,4 +191,22 @@ class AdminController extends Controller
         return view('admin.products.add', compact('categories', 'brands'));
     }
 
+    public function product_store(Request $request){
+        $request->validate([
+            'name' => "required",
+            'slug' => "required|unique:products,slug",
+            'short_description' => "required",
+            'description' => "required",
+            'regular_price' => "required",
+            'sale_price' => "required",
+            'SKU' => "required",
+            'stock_status' => "required",
+            'featured' => "required",
+            'quantity' => "required",
+            'image' => "required|mimes:png,jpg,jpeg|max:2048",
+            'category_id' => "required",
+            'brand_id' => "required"
+        ]);
+    }
+
 }
