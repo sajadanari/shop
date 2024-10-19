@@ -231,4 +231,20 @@ class AdminController extends Controller
         }
     }
 
+    public function GenerateProductImageThumbnail($image, $imageName){
+        $destPath = public_path('uploads/products');
+        $destPathThumbnail = public_path('uploads/products/thumbnails');
+        $img = Image::read($image->path());
+        $img->cover(540, 689, "top");
+        $img->resize(540, 689, function($const){
+            $const->aspectRatio();
+        });
+        $img->save($destPath. '/'. $imageName);
+
+        $img->resize(124, 124, function($const){
+            $const->aspectRatio();
+        });
+        $img->save($destPathThumbnail. '/'. $imageName);
+    }
+
 }
