@@ -72,7 +72,7 @@
                     </select>
                 </div>
             </fieldset>
-            @error('category')
+            @error('category_id')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -89,7 +89,7 @@
                     </select>
                 </div>
             </fieldset>
-            @error('brand')
+            @error('brand_id')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
