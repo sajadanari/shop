@@ -221,6 +221,14 @@ class AdminController extends Controller
         $product->quantity = $request->quantity;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
+
+        $current_timestamp = Carbon::now()->timestamp;
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = $current_timestamp . $image->extension();
+            $product->image = $imageName;
+        }
     }
 
 }
