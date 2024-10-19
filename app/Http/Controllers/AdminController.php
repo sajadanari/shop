@@ -230,6 +230,30 @@ class AdminController extends Controller
             $this->GenerateProductImageThumbnail($image, $imageName);
             $product->image = $imageName;
         }
+
+        $gallery_arr = array();
+        $gallery_images = "";
+        $counter = 1;
+
+        if($request->hasFile('images')){
+            $allowdExtensions = ['png', 'jpg', 'jpeg'];
+            $files = $request->file('images');
+            foreach($files as $file){
+                $gextension = $file->getClientOriginalExtension();
+                if(in_array($gextension, $allowdExtensions)){
+                    $gfileName = $current_timestamp . '-' . $counter. '.' . $gextension;
+                    $this->GenerateProductImageThumbnail($file, $gfileName);
+                    array_push($gallery_arr, $gfileName);
+                    $counter++;
+                }
+            }
+
+            $gallery_images = implode(',', $gallery_arr);
+        }
+
+        $product->images = $gallery_images;
+        $product->save();
+        return redirect()->route('admin.products')->with('status', 'Product has been added succesfully!');
     }
 
     public function GenerateProductImageThumbnail($image, $imageName){
