@@ -9,6 +9,6 @@ class ShopController extends Controller
 {
     public function index(){
         $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-        return view('home.shop.shop', compact('products'));
+        return view('home.shop.index', compact('products'));
     }
 }
