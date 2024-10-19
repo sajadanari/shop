@@ -274,9 +274,9 @@ class AdminController extends Controller
 
     public function product_edit($id){
         $product = Product::find($id);
-        $category = Category::select('id', 'name')->orderBy('name', 'DESC')->get();
-        $brand = Brand::select('id', 'name')->orderBy('name', 'DESC')->get();
-        return view('admin.products.edit', compact('product', 'category', 'brand'));
+        $categories = Category::select('id', 'name')->orderBy('name', 'DESC')->get();
+        $brands = Brand::select('id', 'name')->orderBy('name', 'DESC')->get();
+        return view('admin.products.edit', compact('product', 'categories', 'brands'));
     }
 
 }
