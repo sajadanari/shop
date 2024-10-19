@@ -318,7 +318,7 @@ class AdminController extends Controller
             if(File::exists($oldFile)){
                 File::delete($oldFile);
             }
-            $oldFileThumbnail = public_path('uploads/products/'). $product->image;
+            $oldFileThumbnail = public_path('uploads/products/thumbnails/'). $product->image;
             if(File::exists($oldFileThumbnail)){
                 File::delete($oldFileThumbnail);
             }
@@ -337,11 +337,11 @@ class AdminController extends Controller
 
             // Delete old gallery images
             foreach(explode(',', $product->images) as $img){
-                $oldFile = public_path('uploads/products/') . trim($product->image);
+                $oldFile = public_path('uploads/products/') . trim($img);
                 if(File::exists($oldFile)){
                     File::delete($oldFile);
                 }
-                $oldFileThumbnail = public_path('uploads/products/'). trim($product->image);
+                $oldFileThumbnail = public_path('uploads/products/thumbnails/'). trim($img);
                 if(File::exists($oldFileThumbnail)){
                     File::delete($oldFileThumbnail);
                 }
@@ -374,18 +374,18 @@ class AdminController extends Controller
         if(File::exists($oldFile)){
             File::delete($oldFile);
         }
-        $oldFileThumbnail = public_path('uploads/products/'). $product->image;
+        $oldFileThumbnail = public_path('uploads/products/thumbnails/'). $product->image;
         if(File::exists($oldFileThumbnail)){
             File::delete($oldFileThumbnail);
         }
 
         // Delete old gallery images
         foreach(explode(',', $product->images) as $img){
-            $oldFile = public_path('uploads/products/') . trim($product->image);
+            $oldFile = public_path('uploads/products/') . trim($img);
             if(File::exists($oldFile)){
                 File::delete($oldFile);
             }
-            $oldFileThumbnail = public_path('uploads/products/'). trim($product->image);
+            $oldFileThumbnail = public_path('uploads/products/thumbnails/'). trim($img);
             if(File::exists($oldFileThumbnail)){
                 File::delete($oldFileThumbnail);
             }
