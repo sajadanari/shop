@@ -12,7 +12,7 @@
     <h3>Add Product</h3>
     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
         <li>
-            <a href="index-2.html">
+            <a href="{{ route('admin.index') }}">
                 <div class="text-tiny">Dashboard</div>
             </a>
         </li>
@@ -20,7 +20,7 @@
             <i class="icon-chevron-right"></i>
         </li>
         <li>
-            <a href="all-product.html">
+            <a href="{{ route('admin.products') }}">
                 <div class="text-tiny">Products</div>
             </a>
         </li>
