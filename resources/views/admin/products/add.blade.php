@@ -33,8 +33,8 @@
     </ul>
 </div>
 <!-- form-add-product -->
-<form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data"
-    action="">
+<form class="tf-section-2 form-add-product" method="POST" enctype="multipart/form-data" action="">
+    @csrf
     <input type="hidden" name="_token" value="8LNRTO4LPXHvbK2vgRcXqMeLgqtqNGjzWSNru7Xx"
         autocomplete="off">
     <div class="wg-box">
