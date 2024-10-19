@@ -226,7 +226,7 @@ class AdminController extends Controller
 
         if($request->hasFile('image')){
             $image = $request->file('image');
-            $imageName = $current_timestamp . $image->extension();
+            $imageName = $current_timestamp . '.'. $image->extension();
             $this->GenerateProductImageThumbnail($image, $imageName);
             $product->image = $imageName;
         }
@@ -324,7 +324,7 @@ class AdminController extends Controller
             }
 
             $image = $request->file('image');
-            $imageName = $current_timestamp . $image->extension();
+            $imageName = $current_timestamp . '.'. $image->extension();
             $this->GenerateProductImageThumbnail($image, $imageName);
             $product->image = $imageName;
         }
