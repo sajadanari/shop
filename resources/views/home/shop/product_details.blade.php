@@ -413,7 +413,7 @@
               </div>
 
               <div class="pc__info position-relative">
-                <p class="pc__category">Dresses</p>
+                <p class="pc__category">{{ $related_product->category->name }}</p>
                 <h6 class="pc__title"><a href="{{ route('shop.product.details', ['prod_slug' => $related_product->slug]) }}">{{ $related_product->name }}</a></h6>
                 <div class="product-card__price d-flex">
                   <span class="money price">
