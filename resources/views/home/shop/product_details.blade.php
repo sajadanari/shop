@@ -23,38 +23,19 @@
                     </a>
                   </div>
 
+                  @foreach (explode(',', $product->images) as $galleryImg)
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="assets/images/products/product_0-1.jpg" width="674"
+                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products'). '/'. $galleryImg }}" width="674"
                       height="674" alt="" />
-                    <a data-fancybox="gallery" href="../images/products/product_0-1.html" data-bs-toggle="tooltip"
+                    <a data-fancybox="gallery" href="{{ asset('uploads/products'). '/'. $galleryImg }}" data-bs-toggle="tooltip"
                       data-bs-placement="left" title="Zoom">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_zoom" />
                       </svg>
                     </a>
                   </div>
-
-                  <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="assets/images/products/product_0-2.jpg" width="674"
-                      height="674" alt="" />
-                    <a data-fancybox="gallery" href="../images/products/product_0-2.html" data-bs-toggle="tooltip"
-                      data-bs-placement="left" title="Zoom">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon_zoom" />
-                      </svg>
-                    </a>
-                  </div>
-
-                  <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="assets/images/products/product_0-3.jpg" width="674"
-                      height="674" alt="" />
-                    <a data-fancybox="gallery" href="../images/products/product_0-3.html" data-bs-toggle="tooltip"
-                      data-bs-placement="left" title="Zoom">
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon_zoom" />
-                      </svg>
-                    </a>
-                  </div>
+                  @endforeach
+                  
 
                 </div>
                 <div class="swiper-button-prev"><svg width="7" height="11" viewBox="0 0 7 11"
