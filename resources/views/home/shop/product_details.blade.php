@@ -129,9 +129,7 @@
             </span>
           </div>
           <div class="product-single__short-desc">
-            <p>Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam
-              varius ipsum, non ultricies tellus sodales eu. Donec dignissim viverra nunc, ut aliquet magna posuere
-              eget.</p>
+            <p>{{ $product->short_description }}</p>
           </div>
           <form name="addtocart-form" method="post">
             <div class="product-single__addtocart">
