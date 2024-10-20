@@ -416,7 +416,13 @@
                 <p class="pc__category">Dresses</p>
                 <h6 class="pc__title"><a href="{{ route('shop.product.details', ['prod_slug' => $related_product->slug]) }}">Kirby T-Shirt</a></h6>
                 <div class="product-card__price d-flex">
-                  <span class="money price">$17</span>
+                  <span class="money price">
+                    @if ($related_product->sale_price)
+                        <s>${{ $related_product->regular_price }}</s> ${{ $related_product->sale_price }}
+                    @else
+                        ${{ $related_product->regular_price }}
+                    @endif
+                  </span>
                 </div>
 
                 <button class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist"
