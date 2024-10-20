@@ -402,10 +402,13 @@
             <div class="swiper-slide product-card">
               <div class="pc__img-wrapper">
                 <a href="{{ route('shop.product.details', ['prod_slug' => $related_product->slug]) }}">
-                  <img loading="lazy" src="assets/images/products/product_3.jpg" width="330" height="400"
-                    alt="Cropped Faux leather Jacket" class="pc__img">
-                  <img loading="lazy" src="assets/images/products/product_3-1.jpg" width="330" height="400"
-                    alt="Cropped Faux leather Jacket" class="pc__img pc__img-second">
+                  <img loading="lazy" src="{{ asset('uploads/products'). '/'. $related_product->image }}" width="330" height="400"
+                    alt="{{ $related_product->name }}" class="pc__img">
+                  @foreach (explode(',', $related_product->images) as $galleryImg)
+                  <img loading="lazy" src="{{ asset('uploads/products'). '/'. $galleryImg }}" width="330" height="400"
+                  alt="{{ $related_product->name }}" class="pc__img pc__img-second">
+                  @endforeach
+                  
                 </a>
                 <button
                   class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium js-add-cart js-open-aside"
