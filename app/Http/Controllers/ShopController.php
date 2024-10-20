@@ -14,6 +14,7 @@ class ShopController extends Controller
 
     public function product_details($prod_slug){
         $product = Product::where('slug', $prod_slug)->first();
-        return view('home.shop.product_details', compact('product'));
+        $related_products = Product::where('slug', '<>', $prod_slug)->get()->take(8);
+        return view('home.shop.product_details', compact('product', 'related_products'));
     }
 }
