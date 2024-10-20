@@ -14,6 +14,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::controller(ShopController::class)->prefix('shop')->name('shop.')->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::get('/{prod_slug}', 'product_details')->name('product.details');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
