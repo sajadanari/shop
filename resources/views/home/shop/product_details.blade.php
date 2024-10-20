@@ -182,7 +182,7 @@
           <div class="product-single__meta-info">
             <div class="meta-item">
               <label>SKU:</label>
-              <span>N/A</span>
+              <span>{{ $product->SKU }}</span>
             </div>
             <div class="meta-item">
               <label>Categories:</label>
