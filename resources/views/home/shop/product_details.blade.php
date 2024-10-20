@@ -190,7 +190,7 @@
             </div>
             <div class="meta-item">
               <label>Tags:</label>
-              <span>biker, black, bomber, leather</span>
+              <span>N/A</span>
             </div>
           </div>
         </div>
