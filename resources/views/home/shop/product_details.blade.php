@@ -186,7 +186,7 @@
             </div>
             <div class="meta-item">
               <label>Categories:</label>
-              <span>Casual & Urban Wear, Jackets, Men</span>
+              <span>{{ $product->category->name }}</span>
             </div>
             <div class="meta-item">
               <label>Tags:</label>
