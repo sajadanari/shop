@@ -120,7 +120,13 @@
             <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
           </div>
           <div class="product-single__price">
-            <span class="current-price">$449</span>
+            <span class="current-price">
+              @if ($product->sale_price)
+                  <s>${{ $product->regular_price }}</s> ${{ $product->sale_price }}
+              @else
+                  ${{ $product->regular_price }}
+              @endif
+            </span>
           </div>
           <div class="product-single__short-desc">
             <p>Phasellus sed volutpat orci. Fusce eget lore mauris vehicula elementum gravida nec dui. Aenean aliquam
