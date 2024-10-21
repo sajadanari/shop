@@ -1,13 +1,13 @@
 @extends("layouts.app")
 
-@section("styles")
+@push("styles")
 
     @stack("home-styles")
-@endsection
+@endpush
 
-@section("scripts")
+@push("scripts")
     @stack("home-scripts")
-@endsection
+@endpush
 
 @section("content")
 
