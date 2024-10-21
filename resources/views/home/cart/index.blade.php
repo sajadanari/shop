@@ -66,7 +66,11 @@
                 <td>
                     <div class="qty-control position-relative">
                     <input type="number" name="quantity" value="{{ $item->qty }}" min="1" class="qty-control__number text-center">
-                    <div class="qty-control__reduce">-</div>
+                    <form action="{{ route('cart.qty.increase', ['rowId' => $item->rowId]) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <div class="qty-control__reduce">-</div>
+                    </form>
                     <form action="{{ route('cart.qty.increase', ['rowId' => $item->rowId]) }}" method="POST">
                       @csrf
                       @method('PUT')
