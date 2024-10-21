@@ -22,6 +22,7 @@ Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(f
     Route::get('/', 'index')->name('index');
     Route::post('/add', 'add_to_cart')->name('add');
     Route::put('/increase-quantity', 'increase_cart_quantity')->name('.qty.increase');
+    Route::put('/decrease-quantity', 'decrease_cart_quantity')->name('.qty.decrease');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
