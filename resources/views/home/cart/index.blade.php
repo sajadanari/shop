@@ -30,6 +30,7 @@
         </a>
       </div>
       <div class="shopping-cart">
+        @if ($items->count() > 0)
         <div class="cart-table__wrapper">
           <table class="cart-table">
             <thead>
@@ -216,6 +217,18 @@
             </div>
           </div>
         </div>
+        @else
+            <div class="row">
+                <div class="col-md-12 text-center pt-5">
+                    <p>
+                        No item found in your cart
+                    </p>
+                    <a href="{{ route('shop.index') }}" class="btn btn-info">
+                        Shop Now
+                    </a>
+                </div>
+            </div>
+        @endif
       </div>
     </section>
   </main>
