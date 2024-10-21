@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
@@ -15,6 +16,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(ShopController::class)->prefix('shop')->name('shop.')->group(function(){
     Route::get('/', 'index')->name('index');
     Route::get('/{prod_slug}', 'product_details')->name('product.details');
+});
+
+Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function(){
+    Route::get('/', 'index')->name('index');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
