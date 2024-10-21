@@ -122,7 +122,7 @@
               <input class="btn-link fw-medium position-absolute top-0 end-0 h-100 px-4" type="submit"
                 value="APPLY COUPON">
             </form>
-            <button class="btn btn-light">UPDATE CART</button>
+            <button class="btn btn-light">CLEAR CART</button>
           </div>
         </div>
         <div class="shopping-cart__totals-wrapper">
