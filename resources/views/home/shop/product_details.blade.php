@@ -117,6 +117,9 @@
           <div class="product-single__short-desc">
             <p>{{ $product->short_description }}</p>
           </div>
+          @if (Cart::instance('cart')->content()->where('id', $product->id)->count() > 0)
+            <a href="{{ route('cart.index') }}" class="btn btn-warning mb-5">Go to Cart</a>
+          @else
           <form name="addtocart-form" method="post" action="{{ route('cart.add') }}">
             @csrf
             <div class="product-single__addtocart">
@@ -131,6 +134,7 @@
               <button type="submit" class="btn btn-primary btn-addtocart" data-aside="cartDrawer">Add to Cart</button>
             </div>
           </form>
+          @endif
           <div class="product-single__addtolinks">
             <a href="#" class="menu-link menu-link_us-s add-to-wishlist"><svg width="16" height="16" viewBox="0 0 20 20"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
