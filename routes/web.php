@@ -23,6 +23,7 @@ Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(f
     Route::post('/add', 'add_to_cart')->name('add');
     Route::put('/increase-quantity/{rowId}', 'increase_cart_quantity')->name('qty.increase');
     Route::put('/decrease-quantity/{rowId}', 'decrease_cart_quantity')->name('qty.decrease');
+    Route::delete('/remove/{rowId}', 'remove_item')->name('remove');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
