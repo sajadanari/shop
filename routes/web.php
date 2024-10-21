@@ -20,6 +20,7 @@ Route::controller(ShopController::class)->prefix('shop')->name('shop.')->group(f
 
 Route::controller(CartController::class)->prefix('cart')->name('cart.')->group(function(){
     Route::get('/', 'index')->name('index');
+    Route::post('/add', 'add_to_cart')->name('add');
 });
 
 Route::middleware(['auth', AuthAdmin::class])->group(function(){
