@@ -102,7 +102,7 @@
                 <tbody>
                   <tr>
                     <th>Subtotal</th>
-                    <td>$1300</td>
+                    <td>${{ Cart::instance('cart')->subtotal() }}</td>
                   </tr>
                   <tr>
                     <th>Shipping</th>
