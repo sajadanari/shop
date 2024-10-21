@@ -110,7 +110,7 @@
                   </tr>
                   <tr>
                     <th>VAT</th>
-                    <td>$19</td>
+                    <td>${{ Cart::instance('cart')->tax() }}</td>
                   </tr>
                   <tr>
                     <th>Total</th>
