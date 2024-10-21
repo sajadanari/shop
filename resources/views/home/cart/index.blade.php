@@ -106,26 +106,7 @@
                   </tr>
                   <tr>
                     <th>Shipping</th>
-                    <td>
-                      <div class="form-check">
-                        <input class="form-check-input form-check-input_fill" type="checkbox" value=""
-                          id="free_shipping">
-                        <label class="form-check-label" for="free_shipping">Free shipping</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input form-check-input_fill" type="checkbox" value="" id="flat_rate">
-                        <label class="form-check-label" for="flat_rate">Flat rate: $49</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input form-check-input_fill" type="checkbox" value=""
-                          id="local_pickup">
-                        <label class="form-check-label" for="local_pickup">Local pickup: $8</label>
-                      </div>
-                      <div>Shipping to AL.</div>
-                      <div>
-                        <a href="#" class="menu-link menu-link_us-s">CHANGE ADDRESS</a>
-                      </div>
-                    </td>
+                    <td>Free</td>
                   </tr>
                   <tr>
                     <th>VAT</th>
