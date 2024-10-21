@@ -29,4 +29,11 @@ class CartController extends Controller
         Cart::instance('cart')->update($rowId, $qty);
         return redirect()->back();
     }
+
+    public function decrease_cart_quantity($rowId){
+        $product = Cart::instance('cart')->get($rowId);
+        $qty = $product->qty - 1;
+        Cart::instance('cart')->update($rowId, $qty);
+        return redirect()->back();
+    }
 }
