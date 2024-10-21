@@ -10,6 +10,11 @@
       $('.qty-control__reduce').on('click', function(){
         $(this).closest('form').submit();
       });
+
+      $('.remove-cart').on('click', function(){
+        $(this).closest('form').submit();
+      });
+
     });
   </script>
 @endpush
@@ -96,7 +101,7 @@
                     <span class="shopping-cart__subtotal">${{ $item->subtotal() }}</span>
                 </td>
                 <td>
-                  <form action="{{ route('cart.item.remove', ['rowId' => $item->rowId]) }}">
+                  <form method="POST" action="{{ route('cart.item.remove', ['rowId' => $item->rowId]) }}">
                     @csrf
                     @method('DELETE')
                     <a href="javascript:void(0)" class="remove-cart">
