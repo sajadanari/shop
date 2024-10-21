@@ -114,7 +114,7 @@
                   </tr>
                   <tr>
                     <th>Total</th>
-                    <td>$1319</td>
+                    <td>${{ Cart::instance('cart')->total() }}</td>
                   </tr>
                 </tbody>
               </table>
