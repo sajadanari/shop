@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    public function index(){
+    public function index(Request $req){
         $products = Product::orderBy('created_at', 'DESC')->paginate(12);
         return view('home.shop.index', compact('products'));
     }
