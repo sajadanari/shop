@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class ShopController extends Controller
 {
     public function index(Request $req){
-        $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+        $page_size = $req->query('page_size') ? $req->query('page_size') : 12;
+        $products = Product::orderBy('created_at', 'DESC')->paginate($page_size);
         return view('home.shop.index', compact('products'));
     }
 
